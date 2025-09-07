@@ -22,6 +22,12 @@ Examples:
 
 ---
 
+## 📚 Learning Resources  
+- [JavaScript Tutorial (YouTube)](https://www.youtube.com/watch?v=EerdGm-ehJQ)  
+- [MDN Web Docs – JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)  
+
+---
+
 ## 🛠️ Tech & Tools  
 - **Language**: JavaScript (ES6+)  
 - **Editor**: VS Code 💻  

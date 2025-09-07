@@ -1,18 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My JavaScript, HTML & CSS Knowledge</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #111827;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --accent: #22c55e;
+            --accent2: #3b82f6;
+            --accent3: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .wrap {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 16px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 0 0 8px;
+        }
+
+        p.lead {
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid #1f2937;
+            border-radius: 16px;
+            padding: 18px;
+            margin: 14px 0;
+        }
+
+        h2 {
+            margin: 0 0 12px;
+            font-size: 1.25rem;
+        }
+
+        ul {
+            margin: 10px 0 0 18px;
+        }
+
+        code,
+        pre {
+            background: #0b1220;
+            border: 1px solid #1f2937;
+            border-radius: 10px;
+        }
+
+        code {
+            padding: 2px 6px;
+        }
+
+        pre {
+            padding: 14px;
+            overflow: auto;
+        }
+
+        .levels {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        .level {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .bar {
+            height: 12px;
+            border-radius: 999px;
+            background: #111827;
+            border: 1px solid #1f2937;
+            overflow: hidden;
+        }
+
+        .fill {
+            height: 100%;
+        }
+
+        .html .fill {
+            width: 70%;
+            background: var(--accent2);
+        }
+
+        .css .fill {
+            width: 65%;
+            background: var(--accent3);
+        }
+
+        .js .fill {
+            width: 50%;
+            background: var(--accent);
+        }
+
+        .tag {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        footer {
+            text-align: center;
+            color: var(--muted);
+            margin: 22px 0 10px;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 560px) {
+            .level {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <script>
-        // syntex to print Hello World
-        alert('Hello World');
-        // syntex performing a simple arithmetic equation
-        alert(10+12);
-        // syntex to replace all the html inside of the page with the given text below
-        document.body.innerHTML = '<p>I have been added using javascript</p>';
-    </script>
+    <main class="wrap">
+        <header>
+            <h1>My Web Knowledge (HTML, CSS & JavaScript)</h1>
+            <p class="lead">Simple summary of what I know right now.</p>
+        </header>
+
+        <section class="card">
+            <h2>Skill Levels (Self-Rated)</h2>
+            <div class="levels">
+                <div class="level html">
+                    <div>HTML — <span class="tag">Intermediate</span></div>
+                    <div class="bar">
+                        <div class="fill" aria-label="HTML level 70%"></div>
+                    </div>
+                </div>
+                <div class="level css">
+                    <div>CSS — <span class="tag">Intermediate</span></div>
+                    <div class="bar">
+                        <div class="fill" aria-label="CSS level 65%"></div>
+                    </div>
+                </div>
+                <div class="level js">
+                    <div>JavaScript — <span class="tag">Beginner → Intermediate</span></div>
+                    <div class="bar">
+                        <div class="fill" aria-label="JavaScript level 50%"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>HTML & CSS (What I Know)</h2>
+            <ul>
+                <li>Basic to intermediate HTML structure and tags.</li>
+                <li>CSS selectors, box model, margin, padding, border.</li>
+                <li>Layouts with flexbox (basic), simple responsive design.</li>
+                <li>Linking CSS and JS files to HTML pages.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>JavaScript (What I Know)</h2>
+            <ul>
+                <li><strong>Variables:</strong> I know <code>let</code>, <code>const</code>, and <code>var</code>, and
+                    when to use them.</li>
+                <li><strong>Data Types:</strong> number, string, boolean, null, undefined, symbol, bigint.</li>
+                <li><strong>Primitive vs Non-Primitive:</strong> I understand the idea and difference.</li>
+                <li><strong>Syntax & Code Blocks:</strong> I know what a statement is and how blocks work with
+                    <code>{ }</code>.</li>
+                <li><strong>DOM Basics:</strong> I can fetch elements using:
+                    <ul>
+                        <li><code>document.getElementById()</code></li>
+                        <li><code>document.getElementsByClassName()</code></li>
+                        <li><code>document.querySelector()</code></li>
+                        <li><code>document.querySelectorAll()</code></li>
+                    </ul>
+                </li>
+                <li><strong>Note:</strong> I have not used objects like classes yet.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Quick Code Samples</h2>
+            <p class="tag">Variable declarations and selecting DOM elements</p>
+            <pre><code>// Variables
+let count = 0;       // can change
+const siteName = "My Learning Repo"; // cannot change (constant)
+var oldWay = "works but not preferred"; // function-scoped
+
+// Data types (primitive)
+let age = 21;                  // number
+let name = "Dark Side";        // string
+let isActive = true;           // boolean
+let nothingHere = null;        // null
+let notSet;                    // undefined
+
+// Code block
+if (isActive) {
+  count = count + 1; // this line is inside a block
+}
+
+// DOM selection
+const title  = document.getElementById("title");
+const cards  = document.getElementsByClassName("card");
+const firstP = document.querySelector("p");
+const allLis = document.querySelectorAll("li");
+
+// Simple DOM change
+if (title) {
+  title.textContent = siteName;
+}
+</code></pre>
+        </section>
+
+        <footer>Updated by me to show what I know today.</footer>
+    </main>
 </body>
+
 </html>
