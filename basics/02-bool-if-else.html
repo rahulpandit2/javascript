@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <p>Rock, Paper, Scissors</p>
+    <p>
+        <button onclick="
+      userSelection = 'rock';
+      random = Math.random();
+      if (random <= 0.33) {
+        computerSelection = 'rock';
+      } else if (random <= 0.66) {
+        computerSelection = 'paper';
+      } else {
+        computerSelection = 'scissor';
+      }
+      if (userSelection === computerSelection) {
+        alert('The computer also selected ' + computerSelection + '. It\'s a tie!');
+      } else if (
+        (userSelection === 'rock' && computerSelection === 'paper') ||
+        (userSelection === 'paper' && computerSelection === 'scissor') ||
+        (userSelection === 'scissor' && computerSelection === 'rock')
+      ) {
+        alert('The computer selected ' + computerSelection + '. You lost!');
+      } else {
+        alert('Bravo! The computer selected ' + computerSelection + ', and you won!');
+      }
+    ">Rock</button>
+
+        <button onclick="
+      userSelection = 'paper';
+      random = Math.random();
+      if (random <= 0.33) {
+        computerSelection = 'rock';
+      } else if (random <= 0.66) {
+        computerSelection = 'paper';
+      } else {
+        computerSelection = 'scissor';
+      }
+      if (userSelection === computerSelection) {
+        alert('The computer also selected ' + computerSelection + '. It\'s a tie!');
+      } else if (
+        (userSelection === 'rock' && computerSelection === 'paper') ||
+        (userSelection === 'paper' && computerSelection === 'scissor') ||
+        (userSelection === 'scissor' && computerSelection === 'rock')
+      ) {
+        alert('The computer selected ' + computerSelection + '. You lost!');
+      } else {
+        alert('Bravo! The computer selected ' + computerSelection + ', and you won!');
+      }
+    ">Paper</button>
+
+        <button onclick="
+      userSelection = 'scissor';
+      random = Math.random();
+      if (random <= 0.33) {
+        computerSelection = 'rock';
+      } else if (random <= 0.66) {
+        computerSelection = 'paper';
+      } else {
+        computerSelection = 'scissor';
+      }
+      if (userSelection === computerSelection) {
+        alert('The computer also selected ' + computerSelection + '. It\'s a tie!');
+      } else if (
+        (userSelection === 'rock' && computerSelection === 'paper') ||
+        (userSelection === 'paper' && computerSelection === 'scissor') ||
+        (userSelection === 'scissor' && computerSelection === 'rock')
+      ) {
+        alert('The computer selected ' + computerSelection + '. You lost!');
+      } else {
+        alert('Bravo! The computer selected ' + computerSelection + ', and you won!');
+      }
+    ">Scissors</button>
+    </p>
+
+    <p>Guess</p>
+    <button onclick="
+    let flipResult = Math.random();
+    let matchResult = flipResult <= 0.5 ? 'Head' : 'Tail';
+    if (matchResult === 'Head') {
+        alert(`Congratulations! the result is ${matchResult}`);
+    } else {
+        alert(`Sorry! the result is ${matchResult}`);
+    }
+">Head</button>
+
+    <button onclick="
+    let flipResult = Math.random();
+    let matchResult = flipResult <= 0.5 ? 'Head' : 'Tail';
+    if (matchResult === 'Tail') {
+        alert(`Congratulations! the result is ${matchResult}`);
+    } else {
+        alert(`Sorry! the result is ${matchResult}`);
+    }
+">Tail</button>
+
+    <div>
+        <p>Cart Quantity</p>
+
+        <button onclick="
+  console.log(`Cart quantity: ${cartQuantity}`);
+">Show Quantity</button>
+
+        <button onclick="
+  if (cartQuantity + 1 > maxQuantity) {
+    console.log('Cart is full!');
+  } else {
+    cartQuantity += 1;
+  }
+  console.log(`Cart quantity: ${cartQuantity}`);
+">Add to Cart</button>
+
+        <button onclick="
+  if (cartQuantity + 2 > maxQuantity) {
+    console.log('Cart is full!');
+  } else {
+    cartQuantity += 2;
+  }
+  console.log(`Cart quantity: ${cartQuantity}`);
+">+2</button>
+
+        <button onclick="
+  if (cartQuantity + 3 > maxQuantity) {
+    console.log('Cart is full!');
+  } else {
+    cartQuantity += 3;
+  }
+  console.log(`Cart quantity: ${cartQuantity}`);
+">+3</button>
+
+        <button onclick="
+  if (cartQuantity - 1 < 0) {
+    console.log('Not enough items in cart!');
+  } else {
+    cartQuantity -= 1;
+  }
+  console.log(`Cart quantity: ${cartQuantity}`);
+">Remove from Cart</button>
+
+        <button onclick="
+  if (cartQuantity - 2 < 0) {
+    console.log('Not enough items in cart!');
+  } else {
+    cartQuantity -= 2;
+  }
+  console.log(`Cart quantity: ${cartQuantity}`);
+">-2</button>
+
+        <button onclick="
+  if (cartQuantity - 3 < 0) {
+    console.log('Not enough items in cart!');
+  } else {
+    cartQuantity -= 3;
+  }
+  console.log(`Cart quantity: ${cartQuantity}`);
+">-3</button>
+
+        <button onclick="
+  cartQuantity = 0;
+  console.log('Cart was reset.');
+  console.log(`Cart quantity: ${cartQuantity}`);
+">Reset Cart</button>
+    </div>
+    <script>
+        let cartQuantity = 0;
+        let maxQuantity = 10;
+    </script>
+</body>
+
+</html>
