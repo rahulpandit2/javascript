@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veriable, String, Numbers, and onClick execution</title>
+</head>
+
+<body>
+    <div>
+        <p>Cart Quantity</p>
+        <button onclick="
+        console.log(`Cart quantity: ${cartQuantity}`);
+        ">Show Quantity</button>
+        <button onclick="
+        cartQuantity++;
+        console.log(`Cart quantity: ${cartQuantity}`);
+    ">Add to Cart</button>
+        <button onclick="
+        cartQuantity+=2;
+        console.log(`Cart quantity: ${cartQuantity}`);
+    ">+2</button>
+        <button onclick="
+        cartQuantity+=3;
+        console.log(`Cart quantity: ${cartQuantity}`);
+    ">+3</button>
+        <button onclick="
+        cartQuantity+=4;
+        console.log(`Cart quantity: ${cartQuantity}`);
+    ">+4</button>
+        <button onclick="
+        cartQuantity+=5;
+        console.log(`Cart quantity: ${cartQuantity}`);
+    ">+5</button>
+        <button onclick="
+        cartQuantity--;
+        console.log(`Cart quantity: ${cartQuantity}`);
+    ">Remove from Cart</button>
+        <button onclick="
+        cartQuantity-=2;
+        console.log(`Cart quantity: ${cartQuantity}`);
+    ">-2</button>
+        <button onclick="
+        cartQuantity-=3;
+        console.log(`Cart quantity: ${cartQuantity}`);
+    ">-3</button>
+        <button onclick="
+        cartQuantity=0;
+        console.log(`Cart was reset.`);
+        console.log(`Cart quantity: ${cartQuantity}`);
+    ">Reset Cart</button>
+    </div>
+    <a href="calculator.html">Calculator</a>
+    <script>
+        // console.log(typeof(cartQuantity));
+        let cartQuantity = 0;
+
+        // Create a <script> element. Inside the <script>, create a variable called 'name', and save your name in this variable (as a string) Continuing from Sa, display the message 'My name is: ${name}' in the console (insert the 'name' variable created in 5a into this message).
+        let name = 'Rahul Pandit';
+        console.log(`My name is ${name}`);
+
+        // At a restaurant, you order 1 coffee ($5), 2 bagels ($3 each), and 1 soup ($9). Calculate the cost and save it in a variable called 'cost'. Continuing from 5c, display 'Cost of food: $${cost}' in the console. Let's say the restaurant charges a 10% tax. Using the 'cost' variable from 5c, calculate the tax (hint: multiply by 0.1), and save the result in a variable.
+
+        let cost = 5 + (2 * 3) + 9
+        console.log(`Cost of food: $${cost}`);
+        let tax = cost * 0.1;
+        console.log(`Tax on food: $${tax}`);
+        console.log(`Total bill: $${cost + tax}`);
+    </script>
+</body>
+
+</html>
