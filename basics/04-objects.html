@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+
+<body>
+    <h1>Rock, Paper, Scissors</h1>
+    <p>
+        <button onclick="play('rock')">Rock</button>
+        <button onclick="play('paper')">Paper</button>
+        <button onclick="play('scissor')">Scissors</button>
+        <button onclick="resetScore()">Reset Score</button>
+    </p>
+    <script>
+        // A simple Object used to store score inside a variable
+        // const score = {
+        //     wins: 0,
+        //     losses: 0,
+        //     ties: 0
+        // }
+        // Now we can save the score inside the local storage instead of the var to make it more permanent
+        let score = JSON.parse(localStorage.getItem('score'));
+
+        function play(userSelection) {
+            let random = Math.random();
+            let computerSelection = '';
+            if (random <= 0.33) {
+                computerSelection = 'rock';
+            } else if (random <= 0.66) {
+                computerSelection = 'paper';
+            } else {
+                computerSelection = 'scissor';
+            }
+            let result = '';
+            if (userSelection === computerSelection) {
+                score.ties++;
+                result = `The computer also selected ${computerSelection}. It's a tie!`;
+            } else if (
+                (userSelection === 'rock' && computerSelection === 'paper') ||
+                (userSelection === 'paper' && computerSelection === 'scissor') ||
+                (userSelection === 'scissor' && computerSelection === 'rock')
+            ) {
+                score.losses++;
+                result = `The computer selected ${computerSelection}. You lost!`;
+            } else {
+                score.wins++;
+                result = `Bravo! The computer selected ${computerSelection}, and you won!`;
+            }
+            localStorage.setItem('score', JSON.stringify(score));
+            alert(`${result}\nTotal victory: ${score.wins}, Total defeats: ${score.losses}, Total ties: ${score.ties}`);
+        }
+
+        function resetScore() {
+            score.wins = 0;
+            score.losses = 0;
+            score.ties = 0;
+            localStorage.setItem('score', JSON.stringify(score));
+            alert(`The score was reset!\nTotal victory: ${score.wins}, Total defeats: ${score.losses}, Total ties: ${score.ties}`);
+        }
+
+        // A more complex/nested example of JS object, it also contains a method i.e. a function inside an object
+        const productInformation = {
+            "name": "Tshirt",
+            "description": "Unisex anime print colourful tshirt",
+            "tags": ["summer", "anime", "cotton", "tshirt", "half sleeve", "Goku", "DBZ"],
+            "ratings": {
+                "star": 4.3,
+                "reviewes": 5609
+            },
+            "sell": function sellItem() {
+                console.log(`This item is now sold.`);
+                // some function to actully sell the item.
+            }
+        }
+
+        console.log(productInformation.name);
+
+        console.log(productInformation.stock);
+
+        productInformation.stock = 1;
+        console.log(productInformation);
+        console.log(productInformation.stock);
+
+        delete productInformation.stock
+        console.log(productInformation);
+        console.log(productInformation.stock);
+
+        console.log(productInformation['description']);
+        console.log(JSON.stringify(productInformation.tags));
+
+        const ratings = (JSON.stringify(productInformation.ratings));
+
+        // outputs as a string
+        console.log(ratings);
+
+        // outputs as an object
+        console.log(JSON.parse(ratings));
+
+        // Shortcuts
+        const newObj = {
+            message: 'Hello World!',
+            author: 'Rahul Pandit'
+        }
+        // const message = newObj.message;
+        // const author = newObj.author;
+        let {message, author} = newObj;
+
+        message = 'The message is now updated';
+        const myNewObj = {
+            // message: message,
+            message
+        }
+        console.log(myNewObj.message);
+        
+        const lastObj = {
+            // greet: function greet() {
+            //     alert('Hi');
+            // },
+            greet() {
+                alert('Hi');
+            }
+        }
+        lastObj.greet();
+    </script>
+</body>
+
+</html>
