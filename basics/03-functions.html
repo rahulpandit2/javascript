@@ -16,6 +16,32 @@
     </p>
 
     <script>
+        const name = 'Rahul Pandit';
+        function greetUser(name) {
+            if (!name) {
+                console.log('Hi There!');
+            } else {
+                console.log(`Hello ${name}!`);
+            }
+        }
+        greetUser(name);
+
+        function convertLength(length, originalUnit, conversionUnit) {
+            if (originalUnit === 'km' && conversionUnit === 'miles') {
+                return length/1.609344;
+            } else if (originalUnit === 'miles' && conversionUnit === 'km') {
+                return length*1.609344;
+            } else if (originalUnit === conversionUnit) {
+                return `Invlid conversion from ${originalUnit} to ${conversionUnit}`;
+            } else {
+                return `Invlid unit ${originalUnit} or ${conversionUnit}`;
+            }
+        }
+        console.log(convertLength(100, 'km', 'miles'));
+        console.log(convertLength(100, 'miles', 'km'));
+        console.log(convertLength(100, 'miles', 'miles'));
+        console.log(convertLength(100, 'kms', 'miles'));
+
         function play(userSelection) {
             let random = Math.random();
             let computerSelection = '';
