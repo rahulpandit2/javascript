@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        /* Subscribe Button */
+        .subscribeContainer {
+            margin: 10px auto;
+            width: clamp(300px, 90%, 600px);
+            padding-bottom: 20px;
+        }
+        .subscribeBtn {
+            background-color: rgba(202, 18, 18, 1);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 32px;
+        }
+        .subscribeBtn:hover {
+            background-color: rgba(255, 0, 0, 0.8);
+        }
+        .subscribeBtn.active {
+            background-color: #19181d;
+        }
+        .subscribeBtn.active:hover {
+            background-color: #3d3d3d;
+        }
+
+        /* Rock Paper Scissor Game */
+        .game {
+            margin: 10px auto;
+            width: clamp(300px, 90%, 600px);
+        }
+        .scoreboard,
+        .result {
+            font-size: 1.5rem;
+            padding: 5px 0;
+            min-height: 1lh;
+        }
+
+        .scoreboard p span:nth-child(1) {
+            color: green;
+        }
+
+        .scoreboard p span:nth-child(2) {
+            color: red;
+        }
+
+        .scoreboard p span:nth-child(3) {
+            color: gray;
+        }
+
+        .gameBtns {
+            padding-bottom: 20px;
+        }
+
+        .gameBtns button {
+            font-size: 4rem;
+            outline: 1px solid gray;
+            border-radius: 50%;
+            line-height: 5lh;
+            padding: 10px;
+            margin: 0 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="subscribeContainer">
+        <h1>Youtube Subscribe Button</h1>
+        <button onclick="subscribe();" class="subscribeBtn">Subscribe</button>
+    </div>
+    <div class="game">
+        <div class="scoreboard"></div>
+        <div class="gameBtns">
+            <button onclick="playGame('✊');" title="Rock">✊</button>
+            <button onclick="playGame('🤚');" title="Paper">🤚</button>
+            <button onclick="playGame('✌️');" title="Scissor">✌️</button>
+        </div>
+        <button onclick="resetScore()">Reset Score</button>
+        <div class="result">Make a Move</div>
+    </div>
+    <script>
+        // subscribe button
+        const button = document.querySelector('button');
+        let subscribed = false;
+        function subscribe() {
+            subscribed = !subscribed;
+            if (subscribed) {
+                button.textContent = 'Subscribed';
+                button.classList.add('active');
+            } else {
+                button.textContent = 'Subscribe';
+                button.classList.remove('active');
+            }
+        };
+
+        // game
+        const score = JSON.parse(localStorage.getItem('score')) || {
+            win: 0,
+            loss: 0,
+            draw: 0
+        };
+        const scoreboard = document.querySelector('.scoreboard');
+        const gameResult = document.querySelector('.result');
+        updateScore()
+        function updateScore() {
+            scoreboard.innerHTML = `<h3>Current Score</h3><p><span>Total Win ${score.win}</span> <span>Total Loss ${score.loss}</span> <span>Total Draw ${score.draw}</span></p>`;
+        }
+        function playGame(userMove) {
+            const random = Math.random();
+            const computerMove = random <= 0.33 ? '✊'
+                                : random <= 0.66 ? '🤚'
+                                : '✌️';
+            if (userMove === computerMove) {
+                score.draw++;
+                gameResult.textContent = `Your Move: ${userMove}, Computer Move: ${computerMove}. It's a tie.`;
+            } else if (
+                userMove === '✊' && computerMove === '🤚' ||
+                userMove === '🤚' && computerMove === '✌️' ||
+                userMove === '✌️' && computerMove === '✊'
+            ) {
+                score.loss++;
+                gameResult.textContent = `Your Move: ${userMove}, Computer Move: ${computerMove}. You lose.`;
+            } else {
+                score.win++;
+                gameResult.textContent = `Your Move: ${userMove}, Computer Move: ${computerMove}. You win.`;
+            }
+            localStorage.setItem('score', JSON.stringify(score));
+            updateScore()
+        }
+        function resetScore() {
+            localStorage.removeItem('score');
+            score.win = 0;
+            score.loss = 0;
+            score.draw = 0;
+            gameResult.textContent = 'Make a Move';
+            updateScore()
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key.toLowerCase() === 'r') {
+                playGame('✊');
+            } else if (e.key.toLowerCase() === 'p') {
+                playGame('🤚'); // I think you meant paper here
+            } else if (e.key.toLowerCase() === 's') {
+                playGame('✌️');
+            }
+        });
+    </script>
+</body>
+</html>
