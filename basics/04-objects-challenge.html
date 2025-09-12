@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problems to solve with JS Objects</title>
+</head>
+<body>
+    <!-- <p>Calculator</p>
+    <p>
+        <button onclick="calculation += '1'; console.log(calculation);  localStorage.setItem('calculation', calculation.toString())">1</button>
+        <button onclick="calculation += '2'; console.log(calculation);  localStorage.setItem('calculation', calculation.toString())">2</button>
+        <button onclick="calculation += '3'; console.log(calculation);  localStorage.setItem('calculation', calculation.toString())">3</button>
+        <button onclick="calculation += ' + '; console.log(calculation);  localStorage.setItem('calculation', calculation.toString())">+</button>
+    </p>
+    <p>
+        <button onclick="calculation += '4'; console.log(calculation);  localStorage.setItem('calculation', calculation.toString())">4</button>
+        <button onclick="calculation += '5'; console.log(calculation);  localStorage.setItem('calculation', calculation.toString())">5</button>
+        <button onclick="calculation += '6'; console.log(calculation);  localStorage.setItem('calculation', calculation.toString())">6</button>
+        <button onclick="calculation += ' - '; console.log(calculation);  localStorage.setItem('calculation', calculation.toString())">-</button>
+    </p>
+    <p>
+        <button onclick="calculation += '7'; console.log(calculation);  localStorage.setItem('calculation', calculation.toString())">7</button>
+        <button onclick="calculation += '8'; console.log(calculation);  localStorage.setItem('calculation', calculation.toString())">8</button>
+        <button onclick="calculation += '9'; console.log(calculation);  localStorage.setItem('calculation', calculation.toString())">9</button>
+        <button onclick="calculation += ' * '; console.log(calculation);  localStorage.setItem('calculation', calculation.toString())">*</button>
+    </p>
+    <p>
+        <button onclick="calculation += '0'; console.log(calculation);  localStorage.setItem('calculation', calculation.toString())">0</button>
+        <button onclick="calculation += '.'; console.log(calculation);  localStorage.setItem('calculation', calculation.toString())">.</button>
+        <button onclick="calculation = eval(calculation); console.log(calculation); localStorage.setItem('calculation', calculation.toString())">=</button>
+        <button onclick="calculation += ' / '; console.log(calculation);  localStorage.setItem('calculation', calculation.toString())">/</button>
+    </p>
+    <p>
+        <button onclick="calculation = ''; console.log('Cleared!'); localStorage.removeItem('calculation')">Clear</button>
+    </p> -->
+    <p>Guess</p>
+    <p>
+        <button onclick="play('heads')">Heads</button>
+        <button onclick="play('tails')">Tail</button>
+        <button onclick="localStorage.removeItem('score');">Reset Score</button>
+    </p>
+    <script>
+        const score = JSON.parse(localStorage.getItem('score')) || {
+            win: 0,
+            loose: 0
+        };
+        function play(userGuess) {
+            const random = Math.random();
+            const result = random <= 0.5 ? 'heads' : 'tails';
+            if (result === userGuess) {
+                score.win++;
+                alert(`The coin landed on ${result}, You won.\nScore: ${score.win} Wins, ${score.loose} Loses`);
+            } else {
+                score.loose++;
+                alert(`The coin landed on ${result}, You lose.\nScore: ${score.win} Wins, ${score.loose} Loses`);
+            }
+            localStorage.setItem('score', JSON.stringify(score));
+        }
+        // const productInfo = {
+        //     'name': 'basketball',
+        //     'price': 2095
+        // }
+        // console.log(`${productInfo.name}, $${(productInfo['price']/100)}`);
+        // productInfo.price+=500;
+        // console.log(`$${(productInfo['price']/100)}`);
+        // productInfo['delivery-time'] = '3 days';
+        // console.log(`${productInfo['delivery-time']}`);
+        // const myProduct1 = {
+        //     'name': 'titan',
+        //     'price': 9999
+        // }
+        // const myProduct2 = {
+        //     'name': 'fastrack',
+        //     'price': 999
+        // }
+
+        // function comparePrice(product1, product2) {
+        //     if (product1.price < product2.price) {
+        //         return product1;
+        //     } else if (product1.price > product2.price) {
+        //         return product2;
+        //     } else {
+        //         return null;
+        //     }
+        // }
+        // console.log(comparePrice(myProduct1, myProduct2).name);
+
+        // function isSameProduct(product1, product2) {
+        //     if (product1.name === product2.name && product1.price === product2.price) {
+        //         return true;
+        //     } else {
+        //         return false;
+        //     }
+        // }
+        // console.log(`Both products are same: ${isSameProduct(myProduct1, myProduct2)}`)
+
+        // const myText = 'Rahul Pandit';
+        // console.log(myText.toLowerCase().repeat(2));
+        
+        // let calculation = localStorage.getItem('calculation') || '';
+    </script>
+</body>
+</html>
