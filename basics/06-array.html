@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    <script type="text/javascript">
+        // Create an array of numbers: const nums = [10, 20, 30]; Modify the last value in this array and change it to 99.
+        const nums = [10,20,30];
+        function replaceLastIndex(arr, arg) {
+            arr[arr.length-1] = arg;
+            return arr;
+        };
+        // console.log(replaceLastIndex(nums, 99));
+
+        // Create a function getLastValue(array) that takes an array and returns the last value in the array. Hint: array indexes start at O so the last index is the number of values in the array minus 1 (lastlndex = array.length - 1).20, 22, 24, 5]) 5 getLastVaIue(['hi', 'hello', 'good')) => 'good'
+        function getLastValue(arr) {
+            if (!Array.isArray(arr)) {
+                throw 'This function only accepts arrays!';
+            }
+            return arr[arr.length - 1]; // last value
+        }
+        // console.log(getLastValue(nums));
+        // console.log(getLastValue([20, 22, 24, 5]));
+        // console.log(getLastValue(['hi', 'hello', 'good']));
+
+        // Create a function arraySwap(array) that takes an array and returns an array where the first and last values are swapped (or switched).
+        function arraySwap (arr) {
+            if (!Array.isArray(arr)) throw 'This function only accepts arrays!';
+            [arr[0], arr[arr.length - 1]] = [arr[arr.length - 1], arr[0]];
+            return arr;
+        }
+        // console.log(arraySwap(nums));
+
+        // Create a for loop that counts up from O to 10, but counts up by 2 (0, 2, 4, ..., 8, 10).
+        // for (let i = 0; i <= 10; i+=2) console.log(i);
+
+        // Create a for loop that counts down from 5 to O.
+        // for (let i = 5; i >= 0; i--) console.log(i);
+
+        // Create a while loop that counts up from O to 10, but counts up by 2 (0, 2, 4, ..., 8, 10).
+        let range = 0;
+        while (range<=10) {
+            // console.log(range);
+            range+=2;
+        }
+        // Create a while loop that counts down from 5 to O.
+        let countDown = 5;
+        while (countDown>=0) {
+            // console.log(countDown);
+            countDown--;
+        }
+
+        // Create a loop that takes an array of numbers and creates a new array where each number is increased by 1.
+        let higherArr = [];
+        for (var i = 0; i < nums.length; i++) {
+            higherArr.push(nums[i] + 1);
+        }
+        // console.log(higherArr);
+
+        // Create a function addNum(array, num) that takes an array of numbers and returns an array where each number is increased by 'num'.
+        function addNum(array, num) {
+            if (!Array.isArray(array)) throw 'first argument must be an array';
+            if (typeof num !== 'number') throw 'second argument must be a number';
+            let higherArr = [];
+            for (var i = 0; i < array.length; i++) {
+                higherArr.push(array[i] + num);
+            }
+            return higherArr;
+        }
+        // console.log(addNum(nums, 100));
+
+        // Create a function addArrays(array1, array2) that takes 2 arrays of numbers and adds each number in the arrays together.
+        function addArrays(array1, array2) {
+            if (!Array.isArray(array1) || !Array.isArray(array2)) {
+                throw new error('Both arguments must be an array!');
+            }
+            const length = Math.max(array1.length, array2.length);
+            const result = [];
+            for (var i = 0; i < length; i++) {
+                const a = array1[i] ?? 0;
+                const b = array2[i] ?? 0;
+                result.push(a + b);
+            }
+            return result;
+        };
+        // console.log(addArrays(nums, [2]));
+
+        // Create a function countPositive(nums) that takes an array of numbers and returns how many numbers in the array are greater than O.
+        function countPositive(nums) {
+            if (!Array.isArray(nums)) {
+                throw new Error('The argument must be an array!');
+            }
+            let count = 0;
+            for (let i = 0; i < nums.length; i++) {
+                if (nums[i] > 0) count++;
+            }
+            return count;
+        }
+
+        function countPositive(nums)
+    </script>
+</body>
+</html>̥
