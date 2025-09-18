@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance Functions</title>
+</head>
+
+<body>
+    <ol style="display: none">
+        <li>Create an arrow function called 'multiply' that takes 2 numbers, multiplies them together, and returns the result.</li>
+        <li>Create a function countPositive(nums) that takes an array of numbers and returns how many numbers in the array are greater than O. Create this function using .forEach() instead of a loop.</li>
+        <li>Create a function addNum(array, num) that takes an array of numbers and returns an array where each number is increased by 'num'. Create this function using .map() instead of a loop.</li>
+        <li>Create a function removeEgg(foods) that takes an array of strings and returns an array where the string 'egg' is removed. Create this function using .filter() instead of a loop. • removeEgg(['egg', 'apple', 'egg', 'egg', 'ham']) => ['apple', 'ham']</li>
+    </ol>
+    <p>
+        <button onclick="
+            const exercise = document.querySelector('ol')
+            exercise.style.display = 'block';
+        ">See Exercise</button>
+        <button onclick="
+            const exercise = document.querySelector('ol')
+            exercise.style.display = 'none';
+        ">Hide Exercise</button>
+    </p>
+    <script>
+        const multiply = (a, b) => a * b;
+        // console.log(multiply(3,3));
+
+        const numArr = [1, 5, -3, 0, 4, 0.1, -.9];
+        let countPositive = 0;
+        numArr.forEach((item) => {
+            if (item > 0) countPositive++;
+        });
+        // console.log(countPositive);
+
+        function addNum(arr, num) {
+            return arr.map(item => item + num);
+        }
+        // console.log(addNum(numArr, 10));
+
+        const addNums = (arr, num) => arr.map(item => item + num);
+        // console.log(addNums(numArr, 20));
+
+        const food = ['egg', 'apple', 'egg', 'egg', 'ham'];
+        const vegFood = (arr) => arr.filter(item => item !== 'egg');
+        const cheaperFood = (arr, limit) => {
+            let removed = 0;
+            return arr.filter(item => {
+               if (item === 'egg' && removed < limit) {
+                   removed++;
+                   return false;
+               }
+               return true;
+           });
+        };
+        console.log(cheaperFood(food, 2));
+    </script>
+</body>
+
+</html>
