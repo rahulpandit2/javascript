@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions Adv Exercise</title>
+</head>
+
+<body>
+    <ol style="display: none">
+        <li>Create a variable called 'add' and save a function inside. This function will console.Iog(2 + 3); Run the function twice.</li>
+        <li>Continuing from exercise 12a, create a function runTwice(fun) that takes a function (as a parameter) and runs it twice.</li>
+        <li>Create the button below. When clicking the button, after 1 second, the text inside the button changes to 'Finished!' (Hint: use setTimeout() and the DOM)</li>
+        <li>Continuing from exercise 12c, modify the button so that when we click it, the text immediately changes to 'Loading..., and then after 1 second, it changes to 'Finished!l.</li>
+        <li>Create the 'Add to cart' button below. When clicking this button, display the message 'Added' below the button. Then, after 2 seconds, remove the message.</li>
+        <li>Continuing from 12e, if we click the button, wait 1 to 1.5 seconds, and then click the button again, notice that the second time, the message disappears very quickly (because the first setTimeout is still running and will make the message disappear very soon). • Modify the code so when we click the button, it "refreshes" the 2 second wait time (waits for 2 seconds again and removes message). • Hint: you can cancel the previous setTimeout using clearTimeout()</li>
+
+        <li>Imagine we're creating a messaging app. use setlnterval() and document.title to create the feature on the right (the title changes every 1 second).</li>
+        <li>Continuing from 12g, instead of displaying "(2) New messages" every time, save the number of messages in a variable: let messages = 2; • Use the number in the variable to determine what title to display. • Create 2 buttons 'Add' / 'Remove' that increase / decrease the 'messages' variable by 1.</li>
+        <li>Continuing from 12h: Don't let 'messages' go below O. If messages O stop changing the title and display 'App' as the title. When messages > O start changing the title again.</li>
+    </ol>
+    <p>
+        <button onclick="
+            const exercise = document.querySelector('ol')
+            exercise.style.display = 'block';
+        ">See Exercise</button>
+        <button onclick="
+            const exercise = document.querySelector('ol')
+            exercise.style.display = 'none';
+        ">Hide Exercise</button>
+    </p>
+    <p>
+        <button class="demo-btn" onclick="save()">Save</button>
+    </p>
+    <p>
+        <button class="cart-btn" onclick="addToCart()">Add to cart</button>
+        <p><strong class="message"></strong></p>
+    </p>
+    <p>
+        <button onclick="addMessage()">Add</button>
+        <button onclick="removeMessage()">Remove</button>
+    </p>
+    <script>
+        const add = function() {
+            console.log(2 + 3);
+        };
+        // add();
+        // add();
+
+        function runTwice(fn) {
+            fn();
+            fn();
+        };
+        // runTwice(add);
+
+        const btn = document.querySelector('.demo-btn');
+        function save() {
+            btn.innerHTML = 'Loading...';
+            setTimeout(() => {
+                btn.innerHTML = 'Finished!';
+            }, 1000);
+        }
+
+        const cartBtn = document.querySelector('.cart-btn');
+        const message = document.querySelector('.message');
+        let timeoutId;
+        function addToCart() {
+            message.textContent = 'Added';
+            if (timeoutId) clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+                message.innerHTML = '';
+            }, 2000);
+        }
+
+        let messages = 0;
+        let intervalId;
+        let showAlert = false;
+        const appName = "App";
+
+        function addMessage() {
+            messages++;
+            startInterval();
+        }
+
+        function removeMessage() {
+            if (messages > 0) messages--;
+            if (messages === 0) {
+                clearInterval(intervalId);
+                intervalId = null;
+                document.title = appName;
+            }
+        }
+
+        function startInterval() {
+            if (!intervalId) {
+                intervalId = setInterval(() => {
+                    if (messages > 0) {
+                        document.title = showAlert
+                            ? `(${messages}) New Messages`
+                            : appName;
+                        showAlert = !showAlert;
+                    } else {
+                        document.title = appName;
+                    }
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+
+</html>
