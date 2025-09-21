@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Game Section -->
+        <main class="game">
+            <section class="result">
+                <p class="userMove animateInFromLeft">🧑</p>
+                <div class="divider"><span>VS</span></div>
+                <p class="computerMove animateInFromRight">🤖</p>
+            </section>
+
+            <ul class="inputs">
+                <li>✊</li>
+                <li>🤚</li>
+                <li>✌️</li>
+            </ul>
+
+            <div class="message">
+                <p>Make a move!</p>
+            </div>
+        </main>
+
+        <!-- Info / Score Section -->
+        <aside class="info">
+            <ul class="logs">
+                <!-- <li>User picked ✊ — Computer picked 🤚 → Loss</li> -->
+            </ul>
+
+            <div class="score">
+                <p class="wins" title="Total Wins">00</p><span>-</span>
+                <p class="lost" title="Total Losses">00</p><span>-</span>
+                <p class="draw" title="Total Draw">00</p>
+            </div>
+
+            <div class="controls">
+                <button class="reset">Reset</button>
+                <button class="autoplay">Autoplay</button>
+            </div>
+
+            <!-- Shortcut Guide -->
+            <div class="shortcuts">
+                <p><strong>Keyboard Shortcuts:</strong></p>
+                <ul>
+                    <li><kbd>R</kbd> → Rock</li>
+                    <li><kbd>P</kbd> → Paper</li>
+                    <li><kbd>S</kbd> → Scissor</li>
+                    <li><kbd>A</kbd> → Autoplay (Start / Stop)</li>
+                    <li><kbd>Alt</kbd> + <kbd>R</kbd> → Reset Score</li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
