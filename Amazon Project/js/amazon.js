@@ -22,7 +22,7 @@ products.forEach((product) => {
           </div>
 
           <div class="product-quantity-container">
-            <select>
+            <select data-product-id="${product['id']}">
               <option selected="" value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -38,7 +38,7 @@ products.forEach((product) => {
 
           <div class="product-spacer"></div>
 
-          <div class="added-to-cart">
+          <div class="added-to-cart" data-product-id="${product['id']}">
             <img src="images/icons/checkmark.png">
             Added
           </div>
@@ -56,19 +56,33 @@ const addToCartBtn = document.querySelectorAll('.add-to-cart-button');
 addToCartBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
         const productId = btn.dataset.productId;
+        const addedMessage = document.querySelector(`.added-to-cart[data-product-id="${productId}"]`)
         let matchingItem;
         cart.forEach((item) => {
             if (productId === item.productId) {
                 matchingItem = item;
             }
         });
+
+        let addedItemMessageTimeoutID;
+        function showAddedToCartMessage() {
+            addedMessage.style.opacity = 1;
+            if (addedItemMessageTimeoutID) clearTimeout(addedItemMessageTimeoutID);
+            addedItemMessageTimeoutID = setTimeout(() => {
+                addedMessage.style.opacity = 0;
+            }, 2000);
+        }
+
+        const qunatityToBeAdded = parseInt(document.querySelector(`.product-quantity-container select[data-product-id="${productId}"]`).value);
         if (matchingItem) {
-            matchingItem.quantity++;
+            matchingItem.quantity+=qunatityToBeAdded;
+            showAddedToCartMessage();
         } else {
             cart.push({
                 productId: productId,
-                quantity: 1
+                quantity: qunatityToBeAdded
             });
+            showAddedToCartMessage();
         }
         updateCart();
     });
