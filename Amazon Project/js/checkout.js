@@ -1,5 +1,6 @@
 import { cart } from '../data/cart.js';
 import { products } from '../data/products.js';
+import { formatCurrency } from './utils/money.js';
 
 function updateCart() {
   let totalCartQty = 0;
@@ -41,7 +42,7 @@ cart.forEach((cartItem) => {
                   "${matchingProduct.name}"
                 </div>
                 <div class="product-price">
-                  ₹${Math.floor((matchingProduct['priceInPaise'] * 80) / 100)}
+                  ₹${formatCurrency(matchingProduct['priceInPaise'])}
                 </div>
                 <div class="product-quantity">
                   <span>

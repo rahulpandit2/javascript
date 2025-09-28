@@ -1,4 +1,3 @@
 export function formatCurrency(amountInPaise) {
-    const amountInRupees = amountInPaise / 100;
-    return `₹${amountInRupees.toFixed(2)}`;
+    return Math.floor((amountInPaise * 80) / 100).toFixed(2);
 };
